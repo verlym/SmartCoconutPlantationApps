@@ -1,4 +1,4 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.informaticsdeveloper.smartcoconutplantation;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

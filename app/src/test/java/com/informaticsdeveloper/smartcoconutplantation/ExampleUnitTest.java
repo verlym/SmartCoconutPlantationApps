@@ -1,4 +1,4 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.informaticsdeveloper.smartcoconutplantation;
 
 import org.junit.Test;
 

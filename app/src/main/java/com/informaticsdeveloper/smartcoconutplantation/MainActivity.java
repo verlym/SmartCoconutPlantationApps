@@ -1,7 +1,7 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.informaticsdeveloper.smartcoconutplantation;
 
 //import android.app.Fragment;
-import android.app.Activity;
+
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.informaticsdeveloper.smartcoconutplantation.R;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -21,7 +23,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -77,13 +78,13 @@ public class MainActivity extends AppCompatActivity
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_menu1:
-                fragment = new Menu1();
+                fragment = new HomeMenu();
                 break;
             case R.id.nav_menu2:
-                fragment = new Menu2();
+                fragment = new DateLocTimeMenu();
                 break;
             case R.id.nav_menu3:
-                fragment = new Menu3();
+                fragment = new HistoryMenu();
                 break;
         }
 

@@ -1,4 +1,4 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.informaticsdeveloper.smartcoconutplantation;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,15 +12,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.informaticsdeveloper.smartcoconutplantation.R;
+
 /**
  * Created by Belal on 18/09/16.
  */
 
 
-public class Menu2 extends Fragment {
+public class DateLocTimeMenu extends Fragment {
 
-
-    ListView listView;
 
     @Nullable
     @Override
@@ -38,22 +38,10 @@ public class Menu2 extends Fragment {
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Riwayat");
 
-//        ListFragment fragment = new ListFragment();
-//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//
-//// Replace whatever is in the fragment_container view with this fragment,
-//// and add the transaction to the back stack if needed
-//        transaction.replace(R.id.flHistory, fragment);
-//        transaction.addToBackStack(null);
-//// Commit the transaction
-//        transaction.commit();
+
 
         ListFragment fragment = new ListFragment();
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         transaction.replace(R.id.flHistory, fragment).commit();
-//        FragmentManager fragmentManager = getFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.add(R.id.flHistory,fragment);
-//        fragmentTransaction.commit();
     }
 }

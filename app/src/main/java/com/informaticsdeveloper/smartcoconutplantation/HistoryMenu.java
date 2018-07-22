@@ -1,4 +1,4 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.informaticsdeveloper.smartcoconutplantation;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.informaticsdeveloper.smartcoconutplantation.R;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -32,7 +34,7 @@ import java.util.UUID;
  */
 
 
-public class Menu3 extends Fragment {
+public class HistoryMenu extends Fragment {
 
 
 //    get data by flag exp:
@@ -69,7 +71,7 @@ public class Menu3 extends Fragment {
     TextView tvStatus;
     EditText etPesan;
     Intent btEnablingIntent;
-    int REQ_ENABLE_BLUETOOTH=1;
+    int REQ_ENABLE_BLUETOOTH = 1;
 
     @Nullable
     @Override
@@ -95,9 +97,9 @@ public class Menu3 extends Fragment {
 
         myBTAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        if (!myBTAdapter.isEnabled()){
+        if (!myBTAdapter.isEnabled()) {
             Intent btIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(btIntent,REQ_ENABLE_BLUETOOTH);
+            startActivityForResult(btIntent, REQ_ENABLE_BLUETOOTH);
         }
 
         bluetoothShow();
@@ -127,19 +129,19 @@ public class Menu3 extends Fragment {
         });
     }
 
-    private class SendReceive extends Thread{
+    private class SendReceive extends Thread {
         private final BluetoothSocket bluetoothSocket;
         private final InputStream inputStream;
         private final OutputStream outputStream;
 
-        public SendReceive(BluetoothSocket socket){
+        public SendReceive(BluetoothSocket socket) {
             bluetoothSocket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
             try {
-                tmpIn=bluetoothSocket.getInputStream();
-                tmpOut=bluetoothSocket.getOutputStream();
+                tmpIn = bluetoothSocket.getInputStream();
+                tmpOut = bluetoothSocket.getOutputStream();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -148,21 +150,21 @@ public class Menu3 extends Fragment {
             outputStream = tmpOut;
         }
 
-        public void run(){
-            byte[] buffer=new byte[1024];
+        public void run() {
+            byte[] buffer = new byte[1024];
             int bytes;
 
-            while (true){
+            while (true) {
                 try {
                     bytes = inputStream.read(buffer);
-                    handler.obtainMessage(STATE_MESSAGE_RECEIVED,bytes,-1,buffer).sendToTarget();
+                    handler.obtainMessage(STATE_MESSAGE_RECEIVED, bytes, -1, buffer).sendToTarget();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
 
-        public void write(byte[] bytes){
+        public void write(byte[] bytes) {
             try {
                 outputStream.write(bytes);
             } catch (IOException e) {
@@ -175,7 +177,7 @@ public class Menu3 extends Fragment {
         @Override
         public boolean handleMessage(Message msg) {
 
-            switch (msg.what){
+            switch (msg.what) {
                 case STATE_LISTENING:
                     tvStatus.setText("Listening");
                     break;
@@ -192,7 +194,7 @@ public class Menu3 extends Fragment {
                     byte[] readBuffer = (byte[]) msg.obj;
                     String tempMsg = null;
                     try {
-                        tempMsg = new String(readBuffer,0,msg.arg1,"UTF-8");
+                        tempMsg = new String(readBuffer, 0, msg.arg1, "UTF-8");
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
@@ -207,21 +209,21 @@ public class Menu3 extends Fragment {
         }
     });
 
-    private class Server extends Thread{
+    private class Server extends Thread {
         private BluetoothServerSocket serverSocket;
 
-        public Server(){
+        public Server() {
             try {
-                serverSocket = myBTAdapter.listenUsingRfcommWithServiceRecord(APP_NAME,MY_UUID);
+                serverSocket = myBTAdapter.listenUsingRfcommWithServiceRecord(APP_NAME, MY_UUID);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-        public void run(){
+        public void run() {
             BluetoothSocket socket = null;
 
-            while (socket==null){
+            while (socket == null) {
                 try {
                     Message msg = Message.obtain();
                     msg.what = STATE_CONNECTING;
@@ -234,7 +236,7 @@ public class Menu3 extends Fragment {
                     handler.sendMessage(msg);
                 }
 
-                if (socket!=null){
+                if (socket != null) {
                     Message msg = Message.obtain();
                     msg.what = STATE_CONNECTED;
                     handler.sendMessage(msg);
@@ -247,12 +249,12 @@ public class Menu3 extends Fragment {
         }
     }
 
-    private class Client extends Thread{
+    private class Client extends Thread {
         private BluetoothDevice device;
         private BluetoothSocket socket;
 
-        public Client(BluetoothDevice device1){
-            device=device1;
+        public Client(BluetoothDevice device1) {
+            device = device1;
             try {
                 socket = device.createRfcommSocketToServiceRecord(MY_UUID);
             } catch (IOException e) {
@@ -260,11 +262,11 @@ public class Menu3 extends Fragment {
             }
         }
 
-        public void run(){
+        public void run() {
             try {
                 socket.connect();
                 Message msg = Message.obtain();
-                msg.what=STATE_CONNECTED;
+                msg.what = STATE_CONNECTED;
                 handler.sendMessage(msg);
 
                 sendReceive = new SendReceive(socket);
@@ -272,7 +274,7 @@ public class Menu3 extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
                 Message msg = Message.obtain();
-                msg.what=STATE_CONNECTION_FAILED;
+                msg.what = STATE_CONNECTION_FAILED;
                 handler.sendMessage(msg);
             }
         }
@@ -287,13 +289,13 @@ public class Menu3 extends Fragment {
                 String[] strings = new String[bt.size()];
                 int index = 0;
 
-                if (bt.size()>0){
-                    for (BluetoothDevice device:bt){
+                if (bt.size() > 0) {
+                    for (BluetoothDevice device : bt) {
                         btArray[index] = device;
                         strings[index] = device.getName();
                         index++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,strings);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, strings);
                     listView.setAdapter(adapter);
                 }
             }

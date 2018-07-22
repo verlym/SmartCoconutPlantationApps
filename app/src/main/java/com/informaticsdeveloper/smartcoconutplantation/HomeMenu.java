@@ -1,4 +1,4 @@
-package net.simplifiedcoding.navigationdrawerexample;
+package com.informaticsdeveloper.smartcoconutplantation;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.informaticsdeveloper.smartcoconutplantation.R;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,11 +23,10 @@ import java.util.Calendar;
  */
 
 
-public class Menu1 extends Fragment implements View.OnClickListener {
+public class HomeMenu extends Fragment implements View.OnClickListener {
 
 
-
-    String strLoc,strTime,strDate;
+    String strLoc, strTime, strDate;
     public static ArrayList<History> list = new ArrayList<>();
 
     @Nullable
@@ -49,7 +50,7 @@ public class Menu1 extends Fragment implements View.OnClickListener {
         btnGetCurrentTime.setOnClickListener(this);
     }
 
-    private void displayDateTime(String date,String time) {
+    private void displayDateTime(String date, String time) {
         TextView tvTime = getView().findViewById(R.id.tvCurrentTime);
         TextView tvDate = getView().findViewById(R.id.tvCurrentDate);
         tvDate.setText(date);
@@ -61,7 +62,7 @@ public class Menu1 extends Fragment implements View.OnClickListener {
         strLoc = tvLocation.getText().toString();
     }
 
-    private void setTime(){
+    private void setTime() {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat mdformat = new SimpleDateFormat("HH:mm:ss");
         strTime = "Waktu : " + mdformat.format(calendar.getTime());
@@ -73,32 +74,17 @@ public class Menu1 extends Fragment implements View.OnClickListener {
         strDate = "Tanggal : " + mdformat.format(calendar.getTime());
     }
 
-//    private void IntentActivity(){
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent i = new Intent(getActivity(), MeasureActivity.class);
-//                getActivity().startActivity(i);
-//                getActivity().finish();
-//            }
-//        }, 1000);
-//    }
-
     @Override
     public void onClick(View v) {
         setTime();
         setLoc();
         setDate();
 
-        History history = new History(strLoc,strDate,strTime);
-//        history.setLokasi(strLoc);
-//        history.setTanggal(strDate);
-//        history.setWaktu(strTime);
+        History history = new History(strLoc, strDate, strTime);
         list.add(history);
 
-        displayDateTime(history.getWaktu(),history.getTanggal());
-        Toast.makeText(getActivity(),"berhasil disimpan",Toast.LENGTH_SHORT).show();
+        displayDateTime(history.getWaktu(), history.getTanggal());
+        Toast.makeText(getActivity(), "berhasil disimpan", Toast.LENGTH_SHORT).show();
 
-        //IntentActivity();
     }
 }

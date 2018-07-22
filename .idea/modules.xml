@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NavigationDrawerExample.iml" filepath="$PROJECT_DIR$/NavigationDrawerExample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/android-navigation-drawer-example.iml" filepath="$PROJECT_DIR$/.idea/android-navigation-drawer-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SmartCoconutPlantationApp.iml" filepath="$PROJECT_DIR$/SmartCoconutPlantationApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
