@@ -4,52 +4,32 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by Belal on 18/09/16.
- */
-
-
-public class Menu3 extends Fragment {
-
-
-//    get data by flag exp:
-//    pH123#
-//            if (pH):
-//            123
-//            else if (Mo):
-//            123
-//            ...
-//
-//    revisi:
-//
-//    pilihan save ukuran
-//    database lokal
-//    parsing
-
-    //PARSING GET DATA HARDWARE: pH123#Mo123#Fe123#Li123#
+public class MeasureActivity extends AppCompatActivity {
 
     BluetoothAdapter myBTAdapter;
     SendReceive sendReceive;
@@ -71,27 +51,13 @@ public class Menu3 extends Fragment {
     Intent btEnablingIntent;
     int REQ_ENABLE_BLUETOOTH=1;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //returning our layout file
-        //change R.layout.yourlayoutfilename for each of your fragments
-        return inflater.inflate(R.layout.fragment_menu_3, container, false);
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_measure);
 
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Hasil Ukur");
-
-        tvStatus = view.findViewById(R.id.txtStatus);
-        btnShow = view.findViewById(R.id.btnShow);
-        btnSend = view.findViewById(R.id.btnSend);
-        etPesan = view.findViewById(R.id.etMessage);
-        listView = view.findViewById(R.id.listview);
-        tvMessage = view.findViewById(R.id.txtMessage);
+        init();
 
         myBTAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -278,6 +244,15 @@ public class Menu3 extends Fragment {
         }
     }
 
+    private void init() {
+        tvStatus = findViewById(R.id.txtStatus);
+        btnShow = findViewById(R.id.btnShow);
+        btnSend = findViewById(R.id.btnSend);
+        etPesan = findViewById(R.id.etMessage);
+        listView = findViewById(R.id.listview);
+        tvMessage = findViewById(R.id.txtMessage);
+    }
+
     private void bluetoothShow() {
         btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -293,12 +268,11 @@ public class Menu3 extends Fragment {
                         strings[index] = device.getName();
                         index++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,strings);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,strings);
                     listView.setAdapter(adapter);
                 }
             }
         });
     }
-
 
 }

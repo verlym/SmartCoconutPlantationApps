@@ -14,9 +14,6 @@
     <!--android:text="listen" />-->
 
     <Button
-        android:textColor="@color/colorWhite"
-        android:layout_margin="8dp"
-        android:background="@color/colorPrimary"
         android:id="@+id/btnShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +29,6 @@
     </ListView>
 
     <TextView
-        android:textColor="@color/colorPrimary"
         android:id="@+id/txtStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +38,6 @@
         android:layout_alignParentRight="true" />
 
     <TextView
-        android:textColor="@color/colorPrimary"
         android:id="@+id/txtMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,11 +55,8 @@
         android:hint="pesan" />
 
     <Button
-        android:textColor="@color/colorWhite"
-        android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
         android:id="@+id/btnSend"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

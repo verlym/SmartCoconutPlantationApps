@@ -5,15 +5,15 @@
         <item
             android:id="@+id/nav_menu1"
             android:icon="@mipmap/ic_launcher"
-            android:title="Menu 1" />
+            android:title="Halaman Awal" />
         <item
             android:id="@+id/nav_menu2"
             android:icon="@mipmap/ic_launcher"
-            android:title="Menu 2" />
+            android:title="RIwayat" />
         <item
             android:id="@+id/nav_menu3"
             android:icon="@mipmap/ic_launcher"
-            android:title="Menu 3" />
+            android:title="Hasil Ukur" />
 
     </group>
 
