@@ -80,10 +80,13 @@ public class HomeMenu extends Fragment implements View.OnClickListener {
         setLoc();
         setDate();
 
-        History history = new History(strLoc, strDate, strTime);
-        list.add(history);
-
-        displayDateTime(history.getWaktu(), history.getTanggal());
+//        History history = new History(strLoc,strDate,strTime);
+//        history.setLokasi(strLoc);
+//        history.setTanggal(strDate);
+//        history.setWaktu(strTime);
+//        list.add(history);
+//
+//        displayDateTime(history.getWaktu(), history.getTanggal());
         Toast.makeText(getActivity(), "berhasil disimpan", Toast.LENGTH_SHORT).show();
 
     }

@@ -47,6 +47,25 @@
         android:text="msg"
         android:textSize="30sp" />
 
+    <TextView
+        android:id="@+id/txtMessage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtMessage"
+        android:layout_centerHorizontal="true"
+        android:text="msg"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/txtMessage3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="229dp"
+        android:text="msg"
+        android:textSize="30sp" />
+
     <EditText
         android:id="@+id/etMessage"
         android:layout_width="match_parent"

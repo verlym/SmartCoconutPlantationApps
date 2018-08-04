@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.UUID;
 
@@ -67,7 +68,7 @@ public class HistoryMenu extends Fragment {
     Button btnShow;
     Button btnSend;
     ListView listView;
-    TextView tvMessage;
+    TextView tvMessage,tvMessage2,tvMessage3;
     TextView tvStatus;
     EditText etPesan;
     Intent btEnablingIntent;
@@ -94,6 +95,9 @@ public class HistoryMenu extends Fragment {
         etPesan = view.findViewById(R.id.etMessage);
         listView = view.findViewById(R.id.listview);
         tvMessage = view.findViewById(R.id.txtMessage);
+        tvMessage2 = view.findViewById(R.id.txtMessage2);
+        tvMessage3 = view.findViewById(R.id.txtMessage3);
+
 
         myBTAdapter = BluetoothAdapter.getDefaultAdapter();
 
@@ -112,6 +116,7 @@ public class HistoryMenu extends Fragment {
             @Override
             public void onClick(View v) {
                 String string = etPesan.getText().toString();
+                string += "\r\n";
                 sendReceive.write(string.getBytes());
             }
         });
@@ -194,14 +199,19 @@ public class HistoryMenu extends Fragment {
                     byte[] readBuffer = (byte[]) msg.obj;
                     String tempMsg = null;
                     try {
-                        tempMsg = new String(readBuffer, 0, msg.arg1, "UTF-8");
+                        tempMsg = new String(readBuffer, 0, msg.arg1, "US-ASCII");
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-                    String message = String.valueOf(msg.arg1) +
-                            " bytes received:\n" + String.valueOf(readBuffer) + "\n"
-                            + tempMsg;
-                    tvMessage.setText(message);
+//                    String message = String.valueOf(msg.arg1) +
+//                            " bytes received:\n" + Arrays.toString(readBuffer) + "\n"
+//                            + tempMsg;
+                    tvMessage2.setText("340");
+                    tvMessage.setText(tempMsg);
+                    Double d;
+                    d = 340/321.13*1.428571429;
+                    tvMessage3.setText(String.valueOf(d));
+                    tvMessage.setText(tempMsg);
                     break;
             }
 
