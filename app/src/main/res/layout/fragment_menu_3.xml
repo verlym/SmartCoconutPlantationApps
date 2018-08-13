@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@mipmap/bgplant"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -13,82 +14,250 @@
     <!--android:layout_alignParentTop="true"-->
     <!--android:text="listen" />-->
 
-    <Button
-        android:textColor="@color/colorWhite"
-        android:layout_margin="8dp"
-        android:background="@color/colorPrimary"
-        android:id="@+id/btnShow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="List Bluetooth" />
+    <!--<Button-->
+        <!--android:id="@+id/btnShow"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_margin="8dp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:text="List Bluetooth"-->
+        <!--android:textColor="@color/colorWhite" />-->
 
-    <ListView
-        android:id="@+id/listview"
-        android:layout_width="wrap_content"
-        android:layout_height="61dp"
-        android:layout_below="@+id/btnShow"
-        android:background="@color/colorPrimary">
-    </ListView>
+    <!--<include-->
+        <!--layout="@layout/list_bluetooth"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
+
+    <!--<ListView-->
+        <!--android:id="@+id/listview"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="61dp"-->
+        <!--android:layout_below="@+id/txtStatus"-->
+        <!--android:background="@color/colorPrimary"></ListView>-->
 
     <TextView
-        android:textColor="@color/colorPrimary"
         android:id="@+id/txtStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btnShow"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:text="status"
-        android:layout_alignParentRight="true" />
+        android:textColor="@color/colorPrimary" />
 
-    <TextView
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/txtMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!--<TextView-->
+        <!--android:id="@+id/txtMessage3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="229dp"-->
+        <!--android:text="msg"-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:textSize="30sp" />-->
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:background="@color/colorWhite"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="134dp"
-        android:text="msg"
-        android:textSize="30sp" />
-
-    <TextView
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/txtMessage2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtMessage"
-        android:layout_centerHorizontal="true"
-        android:text="msg"
-        android:textSize="30sp" />
-
-    <TextView
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/txtMessage3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="229dp"
-        android:text="msg"
-        android:textSize="30sp" />
-
-    <EditText
-        android:id="@+id/etMessage"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnSend"
-        android:hint="pesan" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:textColor="@color/colorWhite"
-        android:layout_marginTop="8dp"
-        android:background="@color/colorPrimary"
-        android:id="@+id/btnSend"
-        android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_marginBottom="2dp"
+            android:layout_above="@+id/btnGetAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_alignParentBottom="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btnPH"
+                        android:background="@color/colorWhite"
+                        android:src="@mipmap/ph"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnFertility"
+                        android:background="@color/colorWhite"
+                        android:src="@mipmap/fertilityseeds"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:textSize="24dp"
+                        android:textColor="@color/colorPrimary"
+                        android:text="pH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="24dp"
+                        android:text="Fertility"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnMoisture"
+                        android:background="@color/colorWhite"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@mipmap/water_drop_two" />
+
+                    <ImageButton
+                        android:id="@+id/btnLight"
+                        android:background="@color/colorWhite"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@mipmap/light" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Moisture"
+                        android:textSize="24dp" />
+
+                    <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Light"
+                        android:textSize="24dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnGetAll"
+            android:text="Get All"
+            android:layout_margin="8dp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Kirim" />
+        android:layout_below="@+id/login_title"
+        app:cardCornerRadius="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="70dp"
+        android:background="#fff"
+        android:elevation="4dp"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="30dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawablePadding="8dp"
+                    android:textColor="@color/colorPrimary"
+                    android:id="@+id/tvValue"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/value"
+                    android:singleLine="true"
+                    android:gravity="left|center"
+                    android:hint="Nilai"
+                    android:textSize="24sp"
+                    android:textColorHint="@color/colorPrimary"
+                    android:inputType="textEmailAddress" />
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_marginTop="16dp"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawablePadding="8dp"
+                    android:id="@+id/tvCondition"
+                    android:gravity="left|center"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:drawableLeft="@mipmap/condition"
+                    android:hint="Kondisi" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

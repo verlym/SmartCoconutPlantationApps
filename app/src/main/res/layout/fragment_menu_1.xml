@@ -1,50 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
+    android:background="@mipmap/bgplant"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <TextView
-        android:textColor="@color/colorPrimary"
-        android:layout_centerInParent="true"
-        android:layout_above="@id/tvCurrentDate"
-        android:id="@+id/tvCurrentTime"
-        android:layout_width="wrap_content"
+        android:id="@+id/login_title"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="22dp"
+        android:gravity="center_horizontal"
         android:text=""
-        android:textSize="25sp" />
+        android:textColor="#fff"
+        android:textSize="26sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:layout_centerInParent="true"
-        android:layout_above="@id/tvCurrentLocation"
-        android:id="@+id/tvCurrentDate"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@color/colorPrimary"
-        android:textSize="25sp" />
+        android:layout_below="@+id/login_title"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="70dp"
+        android:background="#fff"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <EditText
-        android:textColor="@color/colorPrimary"
-        android:inputType="textMultiLine"
-        android:layout_centerInParent="true"
-        android:id="@+id/tvCurrentLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Lokasi"
-        android:textSize="25sp" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:id="@+id/tvCurrentDate"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                    android:drawableTint="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:gravity="left|center"
+                    android:hint="Waktu"
+                    android:textSize="24sp"
+                    android:textColorHint="@color/colorPrimary"
+                    android:inputType="textEmailAddress" />
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvCurrentTime"
+                    android:gravity="left|center"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorPrimary"
+                    android:singleLine="true"
+                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                    android:drawableTint="@color/colorPrimary"
+                    android:hint="Tanggal" />
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorPrimary" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:id="@+id/tvCurrentLoc"
+                    android:gravity="left|center"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textSize="24sp"
+                    android:singleLine="true"
+                    android:inputType="textLongMessage"
+                    android:drawableLeft="@drawable/ic_home_black_24dp"
+                    android:drawableTint="@color/colorPrimary"
+                    android:hint="Lokasi" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/user_profile_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/login_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/user_profile_image_background"
+        android:elevation="4dp"
+        android:src="@mipmap/coconut_tree" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_above="@id/btnSimpan"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:textColor="@color/colorWhite"
+            android:id="@+id/etCurrentLoc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawableTint="@color/colorWhite"
+            android:singleLine="true"
+            android:hint="Lokasi"
+            android:textColorHighlight="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:inputType="textLongMessage" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorPrimary"
-        android:layout_marginBottom="24dp"
+        android:id="@+id/btnSimpan"
         android:layout_alignParentBottom="true"
-        android:id="@+id/btnGetCurrentTime"
+        android:layout_margin="8dp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Simpan" />
+        android:text="Simpan"/>
 </RelativeLayout>

@@ -12,7 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.informaticsdeveloper.smartcoconutplantation.R;
+import com.informaticsdeveloper.smartcoconutplantation.HistoryMenu.HistoryMenu;
+import com.informaticsdeveloper.smartcoconutplantation.MeasureMenu.MeasureMenu;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,13 +26,13 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //add this line to display menu1 when the activity is loaded
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -64,10 +65,10 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            return false;
         }
 
-        return super.onOptionsItemSelected(item);
+        return false;
     }
 
     private void displaySelectedScreen(int itemId) {
@@ -81,10 +82,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new HomeMenu();
                 break;
             case R.id.nav_menu2:
-                fragment = new DateLocTimeMenu();
+                fragment = new HistoryMenu();
                 break;
             case R.id.nav_menu3:
-                fragment = new HistoryMenu();
+                fragment = new MeasureMenu();
                 break;
         }
 
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 

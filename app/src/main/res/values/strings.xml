@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pangandaran App</string>
+    <string name="app_name">Smart Coconut Plantation</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,4 +8,23 @@
 
     <string name="vertical_fragment_title_dialog_delete">Delete item</string>
     <string name="vertical_fragment_question_delete">Are you sure you want to delete this item?</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="slide_1_title">Daily Workout</string>
+    <string name="slide_1_desc">Set your daily workout routine by the help of trainer</string>
+    <string name="slide_2_title">Meditation Techniques </string>
+    <string name="slide_2_desc">Learn about the different meditation techniques and practice them</string>
+    <string name="slide_3_title">Diet Chart</string>
+    <string name="slide_3_desc">Make your diet chart by the help of health experts</string>
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+    <string name="by_idev">BY: IDEV</string>
+    <string name="smart_coconut_plantation">Smart Coconut Plantation</string>
+    <string name="ph">pH: 6.885219460069</string>
+    <string name="mositure">Mositure: 3.3223565279</string>
+    <string name="nilai">Baik</string>
+    <string name="kondisi">Cukup Baik</string>
 </resources>
