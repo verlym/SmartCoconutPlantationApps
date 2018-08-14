@@ -144,9 +144,30 @@ public class MeasureMenu extends Fragment {
         //bluetoothShow();
         //bluetoothListViewClick();
         bluetoothPHSend();
+        bluetoothGetAllSend();
         bluetoothFertilitySend();
         bluetoothLightSend();
         bluetoothMoistureSend();
+    }
+
+    private void bluetoothGetAllSend() {
+        btnGetAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String string = "18801279";
+                string += "\r\n";
+                try {
+                    sendReceive.write(string.getBytes());
+                } catch (Exception e) {
+                    Log.e("btoff", String.valueOf(e));
+                    Toast.makeText(getActivity(), "nyalakan bluetooth dahulu", Toast.LENGTH_SHORT).show();
+                }
+
+                DATA_SEND = 5;
+                Toast.makeText(getActivity(), "mohon tunggu", Toast.LENGTH_SHORT).show();
+                Log.e("clicked", "sendAllData");
+            }
+        });
     }
 
     private void bluetoothPHSend() {
@@ -358,9 +379,7 @@ public class MeasureMenu extends Fragment {
 
                             if ((count % 3) == 0) {
                                 double value = Double.valueOf(line);
-                                tvValue.setText(String.valueOf(value));
-                                Log.e("value", String.valueOf(value));
-                                if (value < 650) {
+                                Log.e("value", String.valueOf(value));                                 if (value < 650) {
                                     double kalibrasi = (1023 - value) / 99.198;
                                     double result = Math.round(kalibrasi);
                                     editor = pref.edit();
@@ -368,14 +387,14 @@ public class MeasureMenu extends Fragment {
                                     if (result > 7.5) {
                                         kondisi = "Basa";
                                         editor.putString("kondisi", kondisi);
-                                    } else if ((result <= 7.5) && (result > 5)) {
-                                        kondisi = "Baik";
+                                    } else if ((result <= 7.5) && (result > 5.8)) {
+                                        kondisi = "Netral";
                                         editor.putString("kondisi", kondisi);
-                                    } else if ((result <= 5) && (result > 2.5)) { //BIKIN METHOD BUAT PERSINGKAT KODE
-                                        kondisi = "Agak Asam";
+                                    } else if ((result <= 5.7) && (result > 4.2)) { //BIKIN METHOD BUAT PERSINGKAT KODE
+                                        kondisi = "Asam";
                                         editor.putString("kondisi", kondisi);
                                     } else {
-                                        kondisi = "Asam";
+                                        kondisi = "Terlalu Asam";
                                         editor.putString("kondisi", kondisi);
                                     }
                                     editor.apply();
@@ -389,14 +408,14 @@ public class MeasureMenu extends Fragment {
                                     if (result > 7.5) {
                                         kondisi = "Basa";
                                         editor.putString("kondisi", kondisi);
-                                    } else if ((result <= 7.5) && (result > 5)) {
-                                        kondisi = "Baik";
+                                    } else if ((result <= 7.5) && (result > 5.8)) {
+                                        kondisi = "Netral";
                                         editor.putString("kondisi", kondisi);
-                                    } else if ((result <= 5) && (result > 2.5)) { //BIKIN METHOD BUAT PERSINGKAT KODE
-                                        kondisi = "Agak Asam";
+                                    } else if ((result <= 5.7) && (result > 4.2)) { //BIKIN METHOD BUAT PERSINGKAT KODE
+                                        kondisi = "Asam";
                                         editor.putString("kondisi", kondisi);
                                     } else {
-                                        kondisi = "Asam";
+                                        kondisi = "Terlalu Asam";
                                         editor.putString("kondisi", kondisi);
                                     }
                                     editor.apply();
@@ -421,14 +440,14 @@ public class MeasureMenu extends Fragment {
                                 double kalibrasi = (value) / 102.337;
                                 double result = Math.round(kalibrasi);
                                 editor.putString("mo", String.valueOf(result));
-                                if (result > 5.5) {
-                                    kondisi = "Terlalu Lembab";
+                                if (result > 7.94) {
+                                    kondisi = "Basah";
                                     editor.putString("kondisi", kondisi);
-                                } else if ((result <= 5.5) && (result > 2.5)) {
+                                } else if ((result <= 7.93) && (result > 3.84)) {
                                     kondisi = "Ideal";
                                     editor.putString("kondisi", kondisi);
                                 } else {
-                                    kondisi = "Kurang Bagus";
+                                    kondisi = "Kering";
                                     editor.putString("kondisi", kondisi);
                                 }
                                 editor.apply();
@@ -454,14 +473,14 @@ public class MeasureMenu extends Fragment {
                                 double kalibrasi = (value) / 102.337;
                                 double result = Math.round(kalibrasi);
                                 editor.putString("Fe", String.valueOf(result));
-                                if (result > 7.5) {
-                                    kondisi = "Terlalu Subur";
+                                if (result > 7.94) {
+                                    kondisi = "Berlebihan";
                                     editor.putString("kondisi", kondisi);
-                                } else if ((result <= 7.5) && (result > 4)) {
-                                    kondisi = "Subur";
+                                } else if ((result <= 7.93) && (result > 3.84)) {
+                                    kondisi = "Ideal";
                                     editor.putString("kondisi", kondisi);
                                 } else {
-                                    kondisi = "Kurang Subur";
+                                    kondisi = "Terlalu Kecil";
                                     editor.putString("kondisi", kondisi);
                                 }
                                 editor.apply();
@@ -469,6 +488,43 @@ public class MeasureMenu extends Fragment {
                                 tvCondition.setText(kondisi);
                                 Log.e("value", String.valueOf(value));
                             }
+                        }
+                    }else if(DATA_SEND==4){
+                        Log.e("DATA_SEND_CODE", String.valueOf(DATA_SEND));
+                        for (String line : lines) {
+                            Log.e("data", "line " + count++ + " : " + line);
+
+                            if ((count % 2) == 0) {
+                                key = line;
+                                Log.e("key", key);
+                            }
+
+                            if ((count % 3) == 0) {
+                                editor = pref.edit();
+                                double value = Double.valueOf(line);
+                                double kalibrasi = (value) / 102.3;
+                                double result = Math.round(kalibrasi);
+                                editor.putString("Li", String.valueOf(result));
+                                if (result > 7.5) {
+                                    kondisi = "Cahaya Berlebih";
+                                    editor.putString("kondisi", kondisi);
+                                } else if ((result <= 7.5) && (result > 4)) {
+                                    kondisi = "Cahaya Cukup";
+                                    editor.putString("kondisi", kondisi);
+                                } else {
+                                    kondisi = "Cahaya Kurang";
+                                    editor.putString("kondisi", kondisi);
+                                }
+                                editor.apply();
+                                tvValue.setText(String.valueOf(result));
+                                tvCondition.setText(kondisi);
+                                Log.e("value", String.valueOf(value));
+                            }
+                        }
+                    }else if (DATA_SEND==5){
+                        Log.e("DATA_SEND_CODE", String.valueOf(DATA_SEND));
+                        for (String line : lines) {
+                            Log.e("data", "line " + count++ + " : " + line);
                         }
                     }
                     Log.e("lineslen", String.valueOf(lines.length));

@@ -84,18 +84,22 @@
                     android:layout_height="wrap_content">
 
                     <ImageButton
+                        android:clickable="true"
                         android:id="@+id/btnPH"
                         android:background="@color/colorWhite"
                         android:src="@mipmap/ph"
                         android:layout_width="64dp"
-                        android:layout_height="64dp" />
+                        android:layout_height="64dp"
+                        android:focusable="true" />
 
                     <ImageButton
+                        android:clickable="true"
                         android:id="@+id/btnFertility"
                         android:background="@color/colorWhite"
                         android:src="@mipmap/fertilityseeds"
                         android:layout_width="64dp"
-                        android:layout_height="64dp" />
+                        android:layout_height="64dp"
+                        android:focusable="true" />
 
                 </LinearLayout>
 
@@ -138,18 +142,22 @@
                     android:orientation="vertical">
 
                     <ImageButton
+                        android:clickable="true"
                         android:id="@+id/btnMoisture"
                         android:background="@color/colorWhite"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:src="@mipmap/water_drop_two" />
+                        android:src="@mipmap/water_drop_two"
+                        android:focusable="true" />
 
                     <ImageButton
+                        android:clickable="true"
                         android:id="@+id/btnLight"
                         android:background="@color/colorWhite"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
-                        android:src="@mipmap/light" />
+                        android:src="@mipmap/light"
+                        android:focusable="true" />
 
                 </LinearLayout>
 
