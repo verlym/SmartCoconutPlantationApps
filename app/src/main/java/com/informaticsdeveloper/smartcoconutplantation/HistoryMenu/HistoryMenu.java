@@ -34,6 +34,8 @@ public class HistoryMenu extends Fragment {
         String s3 = pref1.getString("tanggal", "kosong");
         String s4 = pref2.getString("ph", "kosong");
         String s5 = pref2.getString("mo", "kosong");
+        String s6 = pref2.getString("Li", "kosong");
+        String s7 = pref2.getString("Fe", "kosong");
         //String s6 = pref2.getString("kondisi","kosong");
 
         if ((s4!="kosong" && s5!="kosong") || (s4!="kosong") || (s5!="kosong")){

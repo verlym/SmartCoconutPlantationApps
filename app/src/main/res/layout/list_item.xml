@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="4dp">
@@ -21,25 +22,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/tvListDate"
-                android:textSize="18sp"
-                android:hint="tanggal"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:id="@+id/tvListDate"
+
+                    android:hint="tanggal"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:id="@+id/tvListTime"
+
+                    android:hint="waktu"
+                    android:textAlignment="textEnd"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="end" />
+
+            </LinearLayout>
 
             <TextView
                 android:textColor="@color/colorPrimary"
-                android:id="@+id/tvListTime"
-                android:textSize="18sp"
-                android:hint="waktu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textAlignment="center"
                 android:id="@+id/tvListLoc"
                 android:hint="lokasi"
                 android:layout_width="match_parent"
@@ -50,22 +62,44 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="pH :"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+
                     android:id="@+id/tvPH"
                     android:textColor="@color/colorPrimary"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:text="@string/ph"/>
+                    android:text="pH"/>
 
                 <TextView
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Mo :"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+
                     android:id="@+id/tvMoisture"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/mositure"/>
+                    android:text="Moisture"/>
 
             </LinearLayout>
 
@@ -74,20 +108,41 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textAlignment="textEnd"
                     android:textColor="@color/colorPrimary"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight="0.2"
                     android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:text="@string/nilai"/>
+                    android:text="Fe :"
+                    tools:ignore="RtlCompat" />
 
                 <TextView
                     android:textColor="@color/colorPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Fertility"/>
+
+                <TextView
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Li :"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+
+                    android:textColor="@color/colorPrimary"
                     android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="@string/kondisi"/>
+                    android:text="Light"/>
 
             </LinearLayout>
 

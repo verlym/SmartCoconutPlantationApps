@@ -191,7 +191,7 @@
 
         <Button
             android:id="@+id/btnGetAll"
-            android:text="Get All"
+            android:text="Simpan"
             android:layout_margin="8dp"
             android:textColor="@color/colorWhite"
             android:background="@color/colorPrimary"
