@@ -14,6 +14,8 @@ import android.view.MenuItem;
 
 import com.informaticsdeveloper.smartcoconutplantation.HistoryMenu.HistoryMenu;
 import com.informaticsdeveloper.smartcoconutplantation.MeasureMenu.MeasureMenu;
+import com.informaticsdeveloper.smartcoconutplantation.RecommendMenu.RecomendationMenu;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -86,6 +88,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_menu3:
                 fragment = new MeasureMenu();
+                break;
+            case R.id.nav_menu4:
+                fragment = new RecomendationMenu();
                 break;
         }
 

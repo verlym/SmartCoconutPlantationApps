@@ -12,13 +12,8 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,17 +26,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.informaticsdeveloper.smartcoconutplantation.HistoryMenu.ListAdapter;
 import com.informaticsdeveloper.smartcoconutplantation.R;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Set;
-import java.util.StringTokenizer;
 import java.util.UUID;
 
 /**
@@ -100,7 +91,7 @@ public class MeasureMenu extends Fragment {
         //returning our layout file
 
         pref = getActivity().getSharedPreferences("measure", 0);
-        return inflater.inflate(R.layout.fragment_menu_3, container, false);
+        return inflater.inflate(R.layout.fragment_measure, container, false);
     }
 
 
@@ -369,9 +360,9 @@ public class MeasureMenu extends Fragment {
 
                     if (DATA_SEND == 1) {
                         try {
-                            Log.e("DATA_SEND_CODE", String.valueOf(DATA_SEND));
+                            Log.i("DATA_SEND_CODE", String.valueOf(DATA_SEND));
                             for (String line : lines) {
-                                Log.e("data", "line " + count++ + " : " + line);
+                                Log.i("data", "line " + count++ + " : " + line);
 
                                 if ((count % 2) == 0) {
                                     key = line;
@@ -380,7 +371,7 @@ public class MeasureMenu extends Fragment {
 
                                 if ((count % 3) == 0) {
                                     double value = Double.valueOf(line);
-                                    Log.e("value", String.valueOf(value));
+                                    Log.i("value", String.valueOf(value));
                                     if (value < 650) {
                                         double kalibrasi = (1023 - value) / 99.198;
                                         double result = Math.round(kalibrasi);
@@ -432,7 +423,7 @@ public class MeasureMenu extends Fragment {
                         }
                     } else if (DATA_SEND == 2) {
                         try {
-                            Log.e("DATA_SEND_CODE", String.valueOf(DATA_SEND));
+                            Log.i("DATA_SEND_CODE", String.valueOf(DATA_SEND));
                             for (String line : lines) {
                                 Log.e("data", "line " + count++ + " : " + line);
 
@@ -470,13 +461,13 @@ public class MeasureMenu extends Fragment {
                         }
                     } else if (DATA_SEND == 3) {
                         try {
-                            Log.e("DATA_SEND_CODE", String.valueOf(DATA_SEND));
+                            Log.i("DATA_SEND_CODE", String.valueOf(DATA_SEND));
                             for (String line : lines) {
-                                Log.e("data", "line " + count++ + " : " + line);
+                                Log.i("data", "line " + count++ + " : " + line);
 
                                 if ((count % 2) == 0) {
                                     key = line;
-                                    Log.e("key", key);
+                                    Log.i("key", key);
                                 }
 
                                 if ((count % 3) == 0) {
@@ -498,7 +489,7 @@ public class MeasureMenu extends Fragment {
                                     editor.apply();
                                     tvValue.setText(String.valueOf(result));
                                     tvCondition.setText(kondisi);
-                                    Log.e("value", String.valueOf(value));
+                                    Log.i("value", String.valueOf(value));
                                 }
                             }
                         } catch (Exception e) {
@@ -507,13 +498,13 @@ public class MeasureMenu extends Fragment {
                         }
                     } else if (DATA_SEND == 4) {
                         try {
-                            Log.e("DATA_SEND_CODE", String.valueOf(DATA_SEND));
+                            Log.i("DATA_SEND_CODE", String.valueOf(DATA_SEND));
                             for (String line : lines) {
-                                Log.e("data", "line " + count++ + " : " + line);
+                                Log.i("data", "line " + count++ + " : " + line);
 
                                 if ((count % 2) == 0) {
                                     key = line;
-                                    Log.e("key", key);
+                                    Log.i("key", key);
                                 }
 
                                 if ((count % 3) == 0) {
@@ -535,7 +526,7 @@ public class MeasureMenu extends Fragment {
                                     editor.apply();
                                     tvValue.setText(String.valueOf(result));
                                     tvCondition.setText(kondisi);
-                                    Log.e("value", String.valueOf(value));
+                                    Log.i("value", String.valueOf(value));
                                 }
                             }
                         } catch (Exception e) {
@@ -543,7 +534,7 @@ public class MeasureMenu extends Fragment {
                             Toast.makeText(getActivity(), "mohon tunggu", Toast.LENGTH_SHORT).show();
                         }
                     }
-                    Log.e("lineslen", String.valueOf(lines.length));
+                    Log.i("lineslen", String.valueOf(lines.length));
                     break;
             }
             return true;

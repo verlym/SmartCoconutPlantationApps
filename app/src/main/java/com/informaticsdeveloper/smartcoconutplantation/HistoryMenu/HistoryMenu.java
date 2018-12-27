@@ -1,9 +1,7 @@
 package com.informaticsdeveloper.smartcoconutplantation.HistoryMenu;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,7 +22,7 @@ public class HistoryMenu extends Fragment {
     ListAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.history_fragment, container, false);
+        View view = inflater.inflate(R.layout.history_list_fragment, container, false);
         setHasOptionsMenu(false);
 
         pref1 = getActivity().getSharedPreferences("dateloctime", 0);

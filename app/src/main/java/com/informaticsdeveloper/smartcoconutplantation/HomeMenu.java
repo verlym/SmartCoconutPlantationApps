@@ -1,8 +1,6 @@
 package com.informaticsdeveloper.smartcoconutplantation;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,15 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.informaticsdeveloper.smartcoconutplantation.HistoryMenu.History;
-
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-
-/**
- * Created by Belal on 18/09/16.
- */
 
 
 public class HomeMenu extends Fragment implements View.OnClickListener {
@@ -42,7 +33,7 @@ public class HomeMenu extends Fragment implements View.OnClickListener {
         setHasOptionsMenu(false);
 
 
-        return inflater.inflate(R.layout.fragment_menu_1, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
 
