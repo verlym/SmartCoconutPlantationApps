@@ -6,10 +6,10 @@
             android:id="@+id/nav_menu1"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Halaman Awal" />
-        <item
-            android:id="@+id/nav_menu2"
-            android:icon="@drawable/ic_history_black_24dp"
-            android:title="Riwayat" />
+        <!--<item-->
+            <!--android:id="@+id/nav_menu2"-->
+            <!--android:icon="@drawable/ic_history_black_24dp"-->
+            <!--android:title="Riwayat" />-->
         <item
             android:id="@+id/nav_menu3"
             android:icon="@drawable/measure"

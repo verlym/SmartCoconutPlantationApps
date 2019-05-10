@@ -87,8 +87,8 @@ public class RecomendationMenu extends Fragment {
     }
 
     private void initDataset() {
-        dataSet.add(new Plants("Wortel","5"));
-        dataSet.add(new Plants("Kacang Tanah","4.7"));
+        dataSet.add(new Plants("Wortel",ph.toString()));
+//        dataSet.add(new Plants("Kacang Tanah","4.7"));
     }
     private void addListenerRadioBtn(final View view){
         btnCek.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +97,10 @@ public class RecomendationMenu extends Fragment {
                 int selectedId = rgMeasure1.getCheckedRadioButtonId();
                 int selectedId2 = rgMeasure2.getCheckedRadioButtonId();
 
-                if (selectedId != 0){
+                if ((selectedId2==0) || (selectedId==0)){
+                    Toast.makeText(getContext(), "silahkan pilih", Toast.LENGTH_SHORT).show();
+                }
+                else if (selectedId != 0){
                     rbMeasure = view.findViewById(selectedId);
                     Toast.makeText(getContext(),
                             rbMeasure.getText(),
@@ -129,6 +132,7 @@ public class RecomendationMenu extends Fragment {
         rvView.setLayoutManager(layoutManager);
 
         adapter = new RecommendListAdapter(dataSet);
+        adapter.notifyDataSetChanged();
         rvView.setAdapter(adapter);
     }
 }

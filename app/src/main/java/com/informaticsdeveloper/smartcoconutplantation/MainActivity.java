@@ -83,9 +83,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_menu1:
                 fragment = new HomeMenu();
                 break;
-            case R.id.nav_menu2:
-                fragment = new HistoryMenu();
-                break;
+//            case R.id.nav_menu2:
+//                fragment = new HistoryMenu();
+//                break;
             case R.id.nav_menu3:
                 fragment = new MeasureMenu();
                 break;
